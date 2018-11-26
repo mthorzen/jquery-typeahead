@@ -3780,9 +3780,6 @@
 
                 node = $(options.input);
             }
-            if (typeof node[0].value === "undefined") {
-                node[0].value = node.text();
-            }
             if (!node.length) {
                 // {debug}
                 _debug.log({
@@ -3797,6 +3794,10 @@
 
                 return;
             }
+            if (typeof node[0].value === "undefined") {
+                node[0].value = node.text();
+            }
+            
 
             // #270 Forcing node.selector, the property was deleted from jQuery3
             // In case of multiple init, each of the instances needs it's own selector!
